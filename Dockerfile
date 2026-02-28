@@ -13,6 +13,7 @@ RUN pnpm install --frozen-lockfile
 # ── build shared ─────────────────────────────────────────────────────────────
 FROM deps AS build-shared
 WORKDIR /app
+COPY tsconfig.base.json ./
 COPY packages/shared ./packages/shared
 RUN pnpm --filter shared build
 
