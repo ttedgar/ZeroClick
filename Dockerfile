@@ -1,4 +1,5 @@
 FROM node:20-alpine AS base
+RUN apk add --no-cache openssl
 RUN npm install -g pnpm
 
 # ── deps ─────────────────────────────────────────────────────────────────────
@@ -30,6 +31,7 @@ RUN pnpm --filter server db:generate && pnpm --filter server build
 
 # ── production image ─────────────────────────────────────────────────────────
 FROM node:20-alpine AS runner
+RUN apk add --no-cache openssl
 RUN npm install -g pnpm
 WORKDIR /app
 
