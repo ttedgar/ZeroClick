@@ -1,0 +1,15 @@
+export declare const C_CREATE_ROOM = "create_room";
+export declare const C_JOIN_ROOM = "join_room";
+export declare const C_SET_READY = "set_ready";
+export declare const C_START_GAME = "start_game";
+export declare const C_CLICK = "click";
+export declare const C_PING = "ping";
+export declare const S_ROOM_UPDATE = "room_update";
+export declare const S_ROUND_STARTING = "round_starting";
+export declare const S_ROUND_START = "round_start";
+export declare const S_PLAYER_CLICKED = "player_clicked";
+export declare const S_ROUND_END = "round_end";
+export declare const S_GAME_OVER = "game_over";
+export declare const S_ERROR = "error";
+export declare const S_PONG = "pong";
+//# sourceMappingURL=events.d.ts.map

@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.env
+*.env.local
+.DS_Store
+*.log
+.idea/
+.vscode/
+.claude/
+
+# Shared package build output (built during deploy)
+packages/shared/dist/
+
+# Temp / generated files
+pnpm-lock.yaml.*
+*.timestamp-*.mjs
+
+# Prisma generated client (regenerated during deploy)
+apps/server/node_modules/.prisma/

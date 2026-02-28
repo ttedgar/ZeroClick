@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BestGame {
+  id         String   @id @default(cuid())
+  playerName String
+  totalScore Int
+  rounds     Int
+  achievedAt DateTime @default(now())
+
+  @@index([totalScore])
+}
+
+model BestRound {
+  id         String   @id @default(cuid())
+  playerName String
+  roundScore Int
+  achievedAt DateTime @default(now())
+
+  @@index([roundScore])
+}

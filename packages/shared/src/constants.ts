@@ -1,0 +1,10 @@
+export const MAX_PLAYERS = 8
+export const MIN_PLAYERS = 1
+export const DEFAULT_ROUNDS = 3
+export const DEFAULT_DURATION_SECONDS = 3
+export const MISS_PENALTY_MS = 2000
+export const ROUND_RESULTS_PAUSE_MS = 3000
+export const STARTING_BEAT_GAP_MS = 1000
+export const CLOCK_SYNC_SAMPLES = 5
+export const MAX_ROOM_CODE_LENGTH = 6
+export const ROOM_IDLE_TIMEOUT_MS = 30 * 60 * 1000 // 30 min
