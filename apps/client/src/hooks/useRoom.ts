@@ -28,6 +28,11 @@ export function useRoom() {
     }
 
     function onRoomUpdate(state: RoomState) {
+      // Use getState() to read current values without stale closure
+      const { gameOverPayload } = useRoomStore.getState()
+      if (gameOverPayload && state.phase === "LOBBY") {
+        setGameOver(null)
+      }
       setRoom(state)
     }
 

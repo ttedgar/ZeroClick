@@ -22,7 +22,7 @@ interface RoomStore {
   setCurrentBeat: (beat: StartingBeat | null) => void
   setRoundStart: (payload: RoundStartPayload) => void
   setRoundEnd: (payload: RoundEndPayload) => void
-  setGameOver: (payload: GameOverPayload) => void
+  setGameOver: (payload: GameOverPayload | null) => void
   setClockOffset: (offset: number) => void
   setError: (msg: string | null) => void
   reset: () => void

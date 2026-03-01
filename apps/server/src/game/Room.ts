@@ -90,6 +90,26 @@ export class Room {
     this.runStartingSequence()
   }
 
+  restartGame(): boolean {
+    if (this.phase !== "GAME_OVER") return false
+
+    // Reset to lobby state
+    this.phase = "LOBBY"
+    this.currentRound = 0
+    this.roundClicks.clear()
+
+    // Reset all players
+    for (const player of this.players.values()) {
+      player.isReady = false
+      player.roundScores = []
+      player.totalScore = 0
+      player.hasClickedThisRound = false
+    }
+
+    this.broadcastState()
+    return true
+  }
+
   private checkAllReady() {
     if (this.phase !== "LOBBY") return
     if (this.players.size < 1) return

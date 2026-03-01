@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import type { GameOverPayload } from "@zeroclick/shared"
+import { C_RESTART_GAME } from "@zeroclick/shared"
 import { socket } from "../../socket.js"
 import { useRoomStore } from "../../store/roomStore.js"
 
@@ -17,6 +18,10 @@ export function GameOver({
 }) {
   const navigate = useNavigate()
   const reset = useRoomStore((s) => s.reset)
+
+  function playAgain() {
+    socket.emit(C_RESTART_GAME)
+  }
 
   function goHome() {
     socket.disconnect()
@@ -82,12 +87,20 @@ export function GameOver({
         </div>
       )}
 
-      <button
-        onClick={goHome}
-        className="mt-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-8 py-3 rounded transition-colors"
-      >
-        Play Again
-      </button>
+      <div className="flex gap-4 mt-4">
+        <button
+          onClick={playAgain}
+          className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-8 py-3 rounded transition-colors"
+        >
+          Play Again
+        </button>
+        <button
+          onClick={goHome}
+          className="bg-gray-700 hover:bg-gray-600 text-white font-bold px-8 py-3 rounded transition-colors"
+        >
+          Home
+        </button>
+      </div>
     </div>
   )
 }
