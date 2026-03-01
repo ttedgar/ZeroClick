@@ -45,6 +45,7 @@ COPY --from=build-server /app/apps/server/package.json ./apps/server/package.jso
 COPY --from=build-server /app/apps/server/node_modules ./apps/server/node_modules
 COPY --from=build-server /app/apps/server/prisma ./apps/server/prisma
 COPY --from=build-client /app/apps/client/dist ./apps/client/dist
+COPY --from=build-client /app/apps/client/public ./apps/client/public
 
 EXPOSE 8080
 CMD ["node", "apps/server/dist/index.js"]

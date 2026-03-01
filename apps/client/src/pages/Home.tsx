@@ -2,6 +2,7 @@ import { useState } from "react"
 import { CreateRoomForm } from "../components/home/CreateRoomForm.js"
 import { QuickPlayButton } from "../components/home/QuickPlayButton.js"
 import { LeaderboardTable } from "../components/home/LeaderboardTable.js"
+import { Footer } from "../components/Footer.js"
 
 type Tab = "create" | "join"
 
@@ -9,7 +10,8 @@ export default function Home() {
   const [tab, setTab] = useState<Tab>("create")
 
   return (
-    <div className="flex flex-col items-center min-h-dvh px-4 py-12 gap-10">
+    <div className="flex flex-col min-h-dvh bg-gray-950">
+      <div className="flex-1 flex flex-col items-center px-4 py-12 gap-10">
       <header className="text-center">
         <h1 className="text-5xl font-bold tracking-tight">
           zero<span className="text-indigo-400">.</span>click
@@ -40,10 +42,12 @@ export default function Home() {
         {tab === "create" ? <CreateRoomForm /> : <QuickPlayButton />}
       </div>
 
-      <section className="w-full max-w-2xl">
-        <h2 className="text-xs text-gray-500 uppercase tracking-widest mb-4 text-center">Global Leaderboard</h2>
-        <LeaderboardTable />
-      </section>
+        <section className="w-full max-w-2xl">
+          <h2 className="text-xs text-gray-500 uppercase tracking-widest mb-4 text-center">Global Leaderboard</h2>
+          <LeaderboardTable />
+        </section>
+      </div>
+      <Footer />
     </div>
   )
 }

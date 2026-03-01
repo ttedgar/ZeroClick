@@ -20,6 +20,15 @@ export async function buildApp() {
     methods: ["GET", "POST"],
   })
 
+  // Serve public files (ads.txt, etc.) from root at /
+  const clientPublic = path.join(__dirname, "../../client/public")
+  if (fs.existsSync(clientPublic)) {
+    await app.register(fastifyStatic, {
+      root: clientPublic,
+      prefix: "/",
+    })
+  }
+
   // Serve built client in production
   const clientDist = path.join(__dirname, "../../client/dist")
   if (fs.existsSync(clientDist)) {
