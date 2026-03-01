@@ -5,6 +5,7 @@ import { registerJoinRoom } from "./joinRoom.js"
 import { registerSetReady } from "./setReady.js"
 import { registerStartGame } from "./startGame.js"
 import { registerRestartGame } from "./restartGame.js"
+import { registerUpdateSettings } from "./updateSettings.js"
 import { registerClick } from "./click.js"
 import { registerPing } from "./ping.js"
 
@@ -16,4 +17,5 @@ export function registerHandlers(socket: Socket, io: SocketIOServer, rm: RoomMan
   registerRestartGame(socket, io, rm)
   registerClick(socket, io, rm)
   registerPing(socket, io, rm)
+  registerUpdateSettings(socket, io, rm)
 }

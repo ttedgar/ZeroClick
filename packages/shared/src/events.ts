@@ -4,6 +4,7 @@ export const C_JOIN_ROOM = "join_room"
 export const C_SET_READY = "set_ready"
 export const C_START_GAME = "start_game"
 export const C_RESTART_GAME = "restart_game"
+export const C_UPDATE_SETTINGS = "update_settings"
 export const C_CLICK = "click"
 export const C_PING = "ping"
 

@@ -34,6 +34,10 @@ export interface RoomState {
 }
 
 // Socket payload types
+export interface UpdateSettingsPayload {
+  settings: Partial<GameSettings>
+}
+
 export interface CreateRoomPayload {
   name: string
   settings?: Partial<GameSettings>

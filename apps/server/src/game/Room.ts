@@ -110,6 +110,16 @@ export class Room {
     return true
   }
 
+  updateSettings(requesterId: string, settings: Partial<GameSettings>) {
+    const player = this.players.get(requesterId)
+    if (!player?.isCreator) return
+    if (this.phase !== "LOBBY") return
+    if (settings.rounds !== undefined) this.settings.rounds = settings.rounds
+    if (settings.durationSeconds !== undefined) this.settings.durationSeconds = settings.durationSeconds
+    if (settings.visibility !== undefined) this.settings.visibility = settings.visibility
+    this.broadcastState()
+  }
+
   private checkAllReady() {
     if (this.phase !== "LOBBY") return
     if (this.players.size < 1) return
